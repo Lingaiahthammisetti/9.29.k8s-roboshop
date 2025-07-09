@@ -23,7 +23,8 @@ spec:
     spec:
       containers:
       - name: redis
-        image: redis
+        image: redis # pulled from internet.
+        image: redis:v1.1
         imagePullPolicy: Always
 ---
 apiVersion: v1

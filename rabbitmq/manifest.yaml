@@ -33,7 +33,8 @@ spec:
     spec:
       containers:
       - name: rabbitmq
-        image: rabbitmq
+        image: rabbitmq # pulled from internet.
+        image: rabbitmq:v1.1  
         imagePullPolicy: Always
         envFrom:
         - secretRef:

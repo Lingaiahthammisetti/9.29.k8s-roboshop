@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: lingadevops/catalogue:v1
+        image: lingadevops/catalogue:v1.1
         imagePullPolicy: Always
         envFrom:
         - configMapRef:
