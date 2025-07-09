@@ -26,7 +26,7 @@ docker build -t lingadevops/mongodb:v1.5 . && docker push lingadevops/mongodb:v1
 docker build -t lingadevops/rabbitmq:v1.5 . && docker push lingadevops/rabbitmq:v1.5
 ```
 ```
-docker build -t lingadevops/redis:v1.5 . && docker push lingadevops/redis:v1.5
+docker push lingadevops/redis:v1.5
 ```
 ```
 docker build -t lingadevops/catalogue:v1.5 . && docker push lingadevops/catalogue:v1.5
