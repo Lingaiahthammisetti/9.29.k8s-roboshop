@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: payment
-        image: payment:v1.5
+        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/payment:v1.5
         # image: lingadevops/payment:v1.5
         # imagePullPolicy: Always
         envFrom:
