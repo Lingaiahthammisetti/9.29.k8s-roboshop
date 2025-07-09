@@ -9,7 +9,7 @@ docker tag redis:latest redis:v1.5
 
 ```
 ```
-for i in mysql mongodb rabbitmq catalogue cart user shipping payment web dispatch debug ; do cd $i ; docker build -t $i:v1 . ; cd ..; done
+for i in mysql mongodb rabbitmq catalogue cart user shipping payment web dispatch debug ; do cd $i ; docker build -t $i:v1.5 . ; cd ..; done
 
 ```
 # How to build and push the images in DockerHub?
