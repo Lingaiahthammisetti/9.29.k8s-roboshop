@@ -33,8 +33,9 @@ spec:
     spec:
       containers:
       - name: cart
-        image: lingadevops/cart:v1.1
-        imagePullPolicy: Always
+        image: cart:v1.5
+        # image: lingadevops/cart:v1.5
+        # imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: cart

@@ -31,8 +31,9 @@ spec:
     spec:
       containers:
       - name: user
-        image: lingadevops/user:v1.1
-        imagePullPolicy: Always
+        image: user:v1.5
+        # image: lingadevops/user:v1.5
+        # imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: user

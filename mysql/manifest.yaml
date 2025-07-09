@@ -42,8 +42,9 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: lingadevops/mysql:v1.1
-        imagePullPolicy: Always
+        image: mysql:v1.5
+        # image: lingadevops/mysql:v1.5
+        # imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: mysql

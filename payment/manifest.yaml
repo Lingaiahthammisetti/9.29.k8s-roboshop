@@ -33,8 +33,9 @@ spec:
     spec:
       containers:
       - name: payment
-        image: lingadevops/payment:v1.1
-        imagePullPolicy: Always
+        image: payment:v1.5
+        # image: lingadevops/payment:v1.5
+        # imagePullPolicy: Always
         envFrom:
         - secretRef:
             name: payment

@@ -135,8 +135,9 @@ spec:
     spec:
       containers:
       - name: web
-        image: lingadevops/web:v1.1
-        imagePullPolicy: Always
+        image: web:v1.5
+        # image: lingadevops/web:v1.5
+        # imagePullPolicy: Always
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf

@@ -32,8 +32,9 @@ spec:
     spec:
       containers:
       - name: shipping
-        image: lingadevops/shipping:v1.1
-        imagePullPolicy: Always
+        image: shipping:v1.5
+        # image: lingadevops/shipping:v1.5
+        # imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: shipping

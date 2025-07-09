@@ -34,8 +34,9 @@ spec:
       containers:
       - name: rabbitmq
         image: rabbitmq # pulled from internet.
-        image: rabbitmq:v1.1  
-        imagePullPolicy: Always
+        image: rabbitmq:v1.5
+        # image: lingadevops/rabbitmq:v1.5
+        # imagePullPolicy: Always
         envFrom:
         - secretRef:
             name: rabbitmq
