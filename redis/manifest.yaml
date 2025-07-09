@@ -22,10 +22,10 @@ spec:
         tier: db
     spec:
       containers:
-      - name: redis:latest
-        image: redis # pulled from internet.
+      - name: redis
+        image: redis:latest # pulled from internet.
         # image: redis:v1.5
-        imagePullPolicy: Always
+        # imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
