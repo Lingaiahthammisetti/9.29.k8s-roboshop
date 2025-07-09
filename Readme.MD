@@ -14,7 +14,7 @@ for i in mysql mongodb rabbitmq catalogue cart user shipping payment web dispatc
 ```
 # How to build and push the images in DockerHub?
 ```
-docker login -u lingadevops  -pWelcome#100
+docker login -u lingadevops  -p Welcome#100
 ```
 ```
 docker build -t lingadevops/mysql:v1.5 .   && docker push lingadevops/mysql:v1.5
