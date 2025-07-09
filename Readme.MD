@@ -35,42 +35,42 @@ docker build -t rabbitmq:v1.5 ./rabbitmq \
 docker push lingadevops/redis:v1.5
 ```
 ```
-docker build -t rabbitmq:v1.5 ./catalogue \
+docker build -t catalogue:v1.5 ./catalogue \
 && docker tag catalogue:v1.5 lingadevops/catalogue:v1.5 \
 && docker push lingadevops/catalogue:v1.5
 ```
 ```
-docker build -t rabbitmq:v1.5 ./cart \
+docker build -t cart:v1.5 ./cart \
 && docker tag cart:v1.5 lingadevops/cart:v1.5 \
 && docker push lingadevops/cart:v1.5
 ```
 ```
-docker build -t rabbitmq:v1.5 ./user \
+docker build -t user:v1.5 ./user \
 && docker tag user:v1.5 lingadevops/user:v1.5 \
 && docker push lingadevops/user:v1.5
 ```
 ```
-docker build -t rabbitmq:v1.5 ./shipping \
+docker build -t shipping:v1.5 ./shipping \
 && docker tag shipping:v1.5 lingadevops/shipping:v1.5 \
 && docker push lingadevops/shipping:v1.5
 ```
 ```
-docker build -t rabbitmq:v1.5 ./payment \
+docker build -t payment:v1.5 ./payment \
 && docker tag payment:v1.5 lingadevops/payment:v1.5 \
 && docker push lingadevops/payment:v1.5
 ```
 ```
-docker build -t rabbitmq:v1.5 ./web \
+docker build -t web:v1.5 ./web \
 && docker tag web:v1.5 lingadevops/web:v1.5 \
 && docker push lingadevops/web:v1.5
 ```
 ```
-docker build -t rabbitmq:v1.5 ./debug \
+docker build -t debug:v1.5 ./debug \
 && docker tag debug:v1.5 lingadevops/debug:v1.5 \
 && docker push lingadevops/debug:v1.5
 ```
 ```
-docker build -t rabbitmq:v1.5 ./dispatch \
+docker build -t dispatch:v1.5 ./dispatch \
 && docker tag dispatch:v1.5 lingadevops/dispatch:v1.5 \
 && docker push lingadevops/dispatch:v1.5
 ```
