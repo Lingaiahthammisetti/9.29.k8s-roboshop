@@ -8,49 +8,71 @@ docker pull redis
 docker tag redis:latest redis:v1.5
 
 ```
-```
-for i in mysql mongodb rabbitmq catalogue cart user shipping payment web dispatch debug ; do cd $i ; docker build -t $i:v1.5 . ; cd ..; done
 
-```
 # How to build and push the images in DockerHub?
 ```
 docker login -u lingadevops  -p Welcome#100
 ```
+
 ```
-docker build -t lingadevops/mysql:v1.5 .   && docker push lingadevops/mysql:v1.5
+docker build -t mysql:v1.5 ./mysql \
+&& docker tag mysql:v1.5 lingadevops/mysql:v1.5 \
+&& docker push lingadevops/mysql:v1.5
+
 ```
 ```
-docker build -t lingadevops/mongodb:v1.5 . && docker push lingadevops/mongodb:v1.5
+docker build -t mongodb:v1.5 ./mongodb \
+&& docker tag mongodb:v1.5 lingadevops/mongodb:v1.5 \
+&& docker push lingadevops/mongodb:v1.5
+
 ```
 ```
-docker build -t lingadevops/rabbitmq:v1.5 . && docker push lingadevops/rabbitmq:v1.5
+docker build -t rabbitmq:v1.5 ./rabbitmq \
+&& docker tag rabbitmq:v1.5 lingadevops/rabbitmq:v1.5 \
+&& docker push lingadevops/rabbitmq:v1.5
 ```
 ```
 docker push lingadevops/redis:v1.5
 ```
 ```
-docker build -t lingadevops/catalogue:v1.5 . && docker push lingadevops/catalogue:v1.5
+docker build -t rabbitmq:v1.5 ./catalogue \
+&& docker tag catalogue:v1.5 lingadevops/catalogue:v1.5 \
+&& docker push lingadevops/catalogue:v1.5
 ```
 ```
-docker build -t lingadevops/cart:v1.5 . && docker push lingadevops/cart:v1.5
+docker build -t rabbitmq:v1.5 ./cart \
+&& docker tag cart:v1.5 lingadevops/cart:v1.5 \
+&& docker push lingadevops/cart:v1.5
 ```
 ```
-docker build -t lingadevops/user:v1.5 . && docker push lingadevops/user:v1.5
+docker build -t rabbitmq:v1.5 ./user \
+&& docker tag user:v1.5 lingadevops/user:v1.5 \
+&& docker push lingadevops/user:v1.5
 ```
 ```
-docker build -t lingadevops/shipping:v1.5 . && docker push lingadevops/shipping:v1.5
+docker build -t rabbitmq:v1.5 ./shipping \
+&& docker tag shipping:v1.5 lingadevops/shipping:v1.5 \
+&& docker push lingadevops/shipping:v1.5
 ```
 ```
-docker build -t lingadevops/payment:1.1 . && docker push lingadevops/payment:v1.5
+docker build -t rabbitmq:v1.5 ./payment \
+&& docker tag payment:v1.5 lingadevops/payment:v1.5 \
+&& docker push lingadevops/payment:v1.5
 ```
 ```
-docker build -t lingadevops/web:v1.5 . && docker push lingadevops/web:v1.5
+docker build -t rabbitmq:v1.5 ./web \
+&& docker tag web:v1.5 lingadevops/web:v1.5 \
+&& docker push lingadevops/web:v1.5
 ```
 ```
-docker build -t lingadevops/dispatch:v1.5 . && docker push lingadevops/debug:v1.5
+docker build -t rabbitmq:v1.5 ./debug \
+&& docker tag debug:v1.5 lingadevops/debug:v1.5 \
+&& docker push lingadevops/debug:v1.5
 ```
 ```
-docker build -t lingadevops/debug:v1.5 . && docker push lingadevops/dispatch:v1.5
+docker build -t rabbitmq:v1.5 ./dispatch \
+&& docker tag dispatch:v1.5 lingadevops/dispatch:v1.5 \
+&& docker push lingadevops/dispatch:v1.5
 ```
 
 # Run the application in kubernetes
@@ -118,4 +140,7 @@ docker run -d -p 8086:8080 --name dispatch --network roboshop dispatch:v1.5
 docker run -d -p 81:81 --name debug --network roboshop debug:v1.5
 
 
+```
+for i in mysql mongodb rabbitmq catalogue cart user shipping payment web dispatch debug ; do cd $i ; docker build -t $i:v1.5 . ; cd ..; done
 
+```
