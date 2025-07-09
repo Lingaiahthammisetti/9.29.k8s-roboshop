@@ -23,9 +23,9 @@ spec:
     spec:
       containers:
       - name: redis
-        image: redis:latest # pulled from internet.
+        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/redis:latest
         # image: redis:v1.5
-        # imagePullPolicy: Always
+        imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service

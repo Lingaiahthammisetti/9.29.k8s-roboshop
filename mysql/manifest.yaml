@@ -42,9 +42,9 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql:v1.5
+        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/mysql:v1.5
         # image: lingadevops/mysql:v1.5
-        # imagePullPolicy: Always
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: mysql

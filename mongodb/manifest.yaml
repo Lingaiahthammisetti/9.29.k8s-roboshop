@@ -23,9 +23,9 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: mongodb:v1.5
+        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/mongodb:v1.5
         # image: lingadevops/mongodb:v1.5
-        # imagePullPolicy: Always
+        imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
