@@ -1,3 +1,134 @@
+* Roboshop project components connections:
+    * Web connecting catalogue, cart, user, shipping, payment, dispatch
+    * catalogue connecting mongodb
+    * cart connecting redis, catalogue
+    * user connecting mongodb, redis
+    * shipping connecting MySQL
+    * payment connecting RabbitMQ
+
+Trouble shooting k8s pods:
+kubens roboshop
+kubectl get pods
+
+kubectl describe pod mysql-XXXXX
+kubectl logs pod mysql-XXXX
+kubectl exec -it mysql-XXXX -- bash
+
+kubectl describe pod backend-XXXXX
+kubectl logs pod backend-XXXX
+kubectl exec -it backend-XXXX -- bash
+mysql -h <mysql-service-name> -u root -pExpenseApp@1
+telnet <mysql-service-name> 3306
+
+kubectl describe pod frontend-XXXXX
+kubectl logs pod frontend-XXXX
+kubectl exec -it frontend-XXXX -- bash
+telnet <backend-service-name> 8080
+curl http://backend.daws78s.online:80
+
+Test Connection from Shipping Pod
+You can test from inside the shipping pod:
+kubectl exec -it <shipping-pod-name> -- sh
+
+# Inside the pod
+telnet mysql 3306
+# OR if MySQL client is available
+mysql -h mysql -u root -p
+
+* To check connections and data in a microservices-based Kubernetes app like the one you've described, you need to:
+✅ Verify each service's connection to its dependency (e.g., cart to redis)
+✅ Check the actual data in the dependent service (e.g., documents in mongodb, keys in redis, queues in RabbitMQ, etc.)
+
+🔧 GENERAL APPROACH PER SERVICE
+Let’s go one by one for each service you're working with:
+
+🔹 Web connects to:
+catalogue
+cart
+user
+shipping
+payment
+dispatch
+
+✅ Check connections from Web pod:
+kubectl exec -it <web-pod> -- sh
+curl http://catalogue:8080
+curl http://cart:8080
+curl http://user:8080
+curl http://shipping:8080
+curl http://payment:8080
+curl http://dispatch:8080
+Replace 8080 with the actual service port.
+
+🔹 Catalogue connects to MongoDB
+✅ Test connection from catalogue pod:
+kubectl exec -it <catalogue-pod> -- sh
+mongo mongodb://<user>:<password>@mongodb:27017/<dbname>
+MongoDB URI usually comes from an environment variable.
+
+✅ Check MongoDB data:
+use catalogue
+show collections
+db.products.find().pretty()
+🔹 Cart connects to Redis and Catalogue
+✅ Test Redis connection:
+kubectl exec -it <cart-pod> -- sh
+redis-cli -h redis
+PING
+Should return PONG.
+
+✅ Test connection to Catalogue (via HTTP):
+curl http://catalogue:8080/products
+🔹 User connects to MongoDB and Redis
+✅ MongoDB:
+kubectl exec -it <user-pod> -- mongo mongodb://<user>:<password>@mongodb:27017/users
+use users
+show collections
+db.users.find().pretty()
+✅ Redis:
+kubectl exec -it <user-pod> -- redis-cli -h redis
+KEYS *
+🔹 Shipping connects to MySQL
+✅ Test MySQL connection:
+kubectl exec -it <shipping-pod> -- \
+mysql -h mysql -u root -p
+Or use your actual DB user/pass.
+
+✅ Check data:
+SHOW DATABASES;
+USE shipping;
+SHOW TABLES;
+SELECT * FROM shipments LIMIT 5;
+🔹 Payment connects to RabbitMQ
+✅ Check RabbitMQ connection:
+Use rabbitmqadmin, curl, or amqp-tools. If those aren't available in the pod, you can:
+kubectl exec -it <payment-pod> -- sh
+# Install or use a built-in AMQP client if available
+Or access RabbitMQ Management UI if enabled:
+
+http://rabbitmq:15672
+# Login with user/pass
+✅ Check queues:
+rabbitmqadmin list queues
+or via HTTP API:
+
+curl -u guest:guest http://rabbitmq:15672/api/queues
+✅ Summary: Connection Check Matrix
+Service	Depends On	Command to Check Connection
+Web	catalogue	curl http://catalogue:8080
+Web	cart	curl http://cart:8080
+Web	user	curl http://user:8080
+Web	shipping	curl http://shipping:8080
+Web	payment	curl http://payment:8080
+Catalogue	MongoDB	mongo mongodb://...
+Cart	Redis	redis-cli -h redis
+Cart	Catalogue	curl http://catalogue:8080
+User	MongoDB	mongo mongodb://...
+User	Redis	redis-cli -h redis
+Shipping	MySQL	mysql -h mysql -u root -p
+Payment	RabbitMQ	curl http://rabbitmq:15672 or rabbitmqadmin
+
+
 # Installing Roboshop Docker and Kubernetes:
 
 ```
