@@ -31,9 +31,8 @@ spec:
     spec:
       containers:
       - name: user
-        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/user:v1.5
-        # image: lingadevops/user:v1.5
-        # imagePullPolicy: Always
+        image: lingadevops/user:v1.5
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: user

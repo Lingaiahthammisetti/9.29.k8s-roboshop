@@ -23,9 +23,8 @@ spec:
     spec:
       containers:
       - name: dispatch
-        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/dispatch:v1.5
-        # image: lingadevops/dispatch:v1.1
-        # imagePullPolicy: Always
+        image: lingadevops/dispatch:v1.5
+        imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service

@@ -135,9 +135,8 @@ spec:
     spec:
       containers:
       - name: web
-        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/web:v1.5
-        # image: lingadevops/web:v1.5
-        # imagePullPolicy: Always
+        image: lingadevops/web:v1.5
+        imagePullPolicy: Always
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf

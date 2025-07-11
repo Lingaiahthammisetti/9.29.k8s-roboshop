@@ -33,9 +33,8 @@ spec:
     spec:
       containers:
       - name: rabbitmq
-        image: rabbitmq # pulled from internet.
-        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/rabbitmq:v1.5
-        # image: lingadevops/rabbitmq:v1.5
+        #image: rabbitmq # pulled from internet.
+        image: lingadevops/rabbitmq:v1.5
         imagePullPolicy: Always
         envFrom:
         - secretRef:

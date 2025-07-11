@@ -31,9 +31,8 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/catalogue:v1.5
-        # image: lingadevops/catalogue:v1.5
-        # imagePullPolicy: Always
+        image: lingadevops/catalogue:v1.5
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: catalogue

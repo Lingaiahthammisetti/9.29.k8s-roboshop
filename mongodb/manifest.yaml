@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: mongodb
-        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/mongodb:v1.5
+        image: lingadevops/mongodb:v1.5
         imagePullPolicy: Alway
         args:
           - "--bind_ip_all"

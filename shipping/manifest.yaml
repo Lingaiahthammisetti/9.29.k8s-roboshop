@@ -32,9 +32,8 @@ spec:
     spec:
       containers:
       - name: shipping
-        image: 484907532817.dkr.ecr.us-east-1.amazonaws.com/roboshop/shipping:v1.5
-        # image: lingadevops/shipping:v1.5
-        # imagePullPolicy: Always
+        image: lingadevops/shipping:v1.5
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: shipping
