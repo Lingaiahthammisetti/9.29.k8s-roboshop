@@ -208,6 +208,9 @@ docker build -t dispatch:v1.5 ./dispatch \
 
 # Run the application in kubernetes
 ```
+kubectl apply -f namespace.yaml
+```
+```
 kubectl apply -f mysql/manifest.yaml
 ```
 ```
@@ -269,6 +272,37 @@ docker run -d -p 80:80 --name web --network roboshop web:v1.5
 docker run -d -p 8086:8080 --name dispatch --network roboshop dispatch:v1.5
 
 docker run -d -p 81:81 --name debug --network roboshop debug:v1.5
+
+
+
+# Run the applications from Docker image
+docker run -d -p 3306:3306 --network roboshop mysql:v1.5
+
+docker run -d -p 27017:27017 --network roboshop mongodb:v1.5
+
+docker run -d -p 6379:6379 --network roboshop redis:latest
+
+docker run -d -p 5672:5672 --network roboshop rabbitmq:v1.5
+
+docker run -d -p 8081:8080 --network roboshop catalogue:v1.5
+
+docker run -d -p 8082:8080 --network roboshop cart:v1.5
+
+docker run -d -p 8083:8080 --network roboshop user:v1.5
+
+docker run -d -p 8084:8080 --ulimit nofile=65536:65536 --network roboshop shipping:v1.5
+
+docker run -d -p 8085:8080 --network roboshop payment:v1.5
+
+docker run -d -p 80:80 --network roboshop web:v1.5
+
+docker run -d -p 8086:8080 --network roboshop dispatch:v1.5
+
+docker run -d -p 81:81 --network roboshop debug:v1.5
+
+
+
+
 
 
 ```
