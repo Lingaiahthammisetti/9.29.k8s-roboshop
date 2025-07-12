@@ -8,6 +8,6 @@ spec:
   containers:
   - name: debug
     image: lingadevops/debug:v1.1
-    imagePullPolicy: Alway
+    imagePullPolicy: Always
     #here with this line port will not be opened, just for information
     command: ["sleep", "100000"]
