@@ -24,7 +24,7 @@ spec:
       containers:
       - name: mongodb
         image: lingadevops/mongodb:v1.5
-        imagePullPolicy: Alway
+        imagePullPolicy: Always
         args:
           - "--bind_ip_all"
 ---
